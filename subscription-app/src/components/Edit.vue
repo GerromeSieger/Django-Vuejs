@@ -82,7 +82,7 @@ export default {
         }
     },
     mounted() {
-        axios.get(`http://app.ifahsvictor.com/api/subscriptions/` + this.$route.params.id)
+        axios.get(`http://localhost:8000/api/subscriptions/` + this.$route.params.id)
             .then( response => {
                 console.log(response.data)
                 this.subscription = response.data
@@ -96,7 +96,7 @@ export default {
                     return;
                 }
                 axios
-                    .put(`http://app.ifahsvictor.com/api/subscriptions/${this.subscription.id}/`,
+                    .put(`http://localhost:8000/api/subscriptions/${this.subscription.id}/`,
                         this.subscription
                     )
                     .then(response => {
