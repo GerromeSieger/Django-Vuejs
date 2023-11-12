@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {  
-        stage('Build Image') {  
+        stage('Build three Images') {  
             agent {
                 docker {
                     image 'docker:20.10.16-dind'
