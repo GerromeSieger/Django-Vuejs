@@ -4,29 +4,18 @@ services:
   backend:
     build:
       context: ./subscription-api
-    #image: gerrome/django-vuejs_api:1
     volumes:
-      - .:/app3
-      - static_volume:/app3/staticfiles
-      - media_volume:/app3/mediafiles   
+      - .:/app3   
     ports:
       - 8000:8000
 
-  app:
+  frontend:
     build:
       context: ./subscription-app
-    #image: gerrome/django-vuejs_app:1      
     ports:
-      - "3000:3000"
-    volumes:
-      - static_volume:/app3/staticfiles
-      - media_volume:/app3/mediafiles    
+      - 80:80
     depends_on:
-      - api
-
-volumes:
-  static_volume:
-  media_volume:
+      - backend
 
 
 
